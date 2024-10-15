@@ -1,0 +1,84 @@
+﻿@page "/add-empleado"
+@using Tienda.Models
+@inject Tienda.Interfaces.IUsaurioscs usuarioservice;
+
+
+<html>
+<body>
+    <div class="card">
+        <h1>Agregar Nuevo Usuario</h1>
+
+        <label class="etiquetas">Nombres</label>
+        <div class="formulario">
+            <input @bind="usuario.nombres" type="text" placeholder="Ingrese su nombre"/>
+        </div>
+
+
+        <label class="etiquetas">Apellidos</label>
+        <div class="formulario">
+            <input @bind="usuario.apellidos" type="text" placeholder="Ingrese sus apellidos"/>
+        </div>
+
+
+        <label class="etiquetas">Fecha de nacimiento</label>
+        <div class="formulario">
+            <input @bind="usuario.fecha_nacimiento" type="text" placeholder="Ingrese su fecha de nacimiento"/>
+        </div>
+
+        <label class="etiquetas">Telefono</label>
+        <div class="formulario">
+            <input @bind="usuario.telefono" type="tel" placeholder="Ingrese su numero telefonico"/>
+        </div>
+
+
+        <label class="etiquetas">Usuario</label>
+        <div class="formulario">
+            <input @bind="usuario.usuario" type="text" placeholder="Ingrese un nombre de usuario"/>
+        </div>
+
+        <label class="etiquetas">Contraseña</label>
+        <div class="formulario">
+            <input @bind="usuario.pass" type="password" placeholder="Ingrese una contraseña"/>
+        </div>
+
+
+        <label class="etiquetas">Direccion</label>
+        <div class="formulario">
+            <input @bind="usuario.direccion" type="text" placeholder="Ingrese su dirección"/>
+        </div>
+
+        <button class="btnlog" @onclick="@(e=> saveUser())">Registrar Usuario</button>
+
+    </div>
+</body>
+</html>
+
+
+@code {
+
+    #region Declaraciones
+    mUsuario usuario = new mUsuario();
+    #endregion
+
+
+    #region Methods
+
+    private void saveUser()
+    {
+        usuarioservice.Add_Update(usuario);
+        Reset();
+    }
+
+    private void Reset()
+    {
+        usuario = new mUsuario();
+    }
+
+    private void GetUsuarios()
+    {
+        List<mUsuario> lista = new List<mUsuario>();
+
+    }
+
+    #endregion
+}

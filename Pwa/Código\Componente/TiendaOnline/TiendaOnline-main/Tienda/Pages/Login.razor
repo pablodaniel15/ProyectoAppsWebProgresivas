@@ -1,0 +1,52 @@
+﻿@page "/"
+@using Tienda.Models
+@inject Tienda.Interfaces.IUsaurioscs usuarioservice;
+
+@inject NavigationManager NavigationManager
+
+<html>
+<body>
+
+    
+
+    <div class="card">
+        <h1>Login</h1>
+
+        <label class="etiquetas">Usuario</label>
+        <div class="formulario">
+            <input @bind="data.user" placeholder="Ingresa tu usuario" />
+        </div>
+
+
+        <label class="etiquetas">Contraseña</label>
+        <div class="formulario">
+            <input @bind="data.password" type="password" placeholder="Ingresa tu contraseña" />
+        </div>
+
+        <button @onclick="Validate" class="btnlog">Login</button>
+
+    </div>
+
+</body>
+</html>
+
+
+@code{
+    #region Declaraciones
+    mValidateUs data = new mValidateUs();
+    #endregion
+
+
+    private void Validate()
+    {
+        var user = usuarioservice.ValidateUs(data);
+        if(user != null)
+        {
+            NavigationManager.NavigateTo("/add-empleado");
+        }
+        else
+        {
+            Console.WriteLine("Usuario no encontrado");
+        }
+    }
+}

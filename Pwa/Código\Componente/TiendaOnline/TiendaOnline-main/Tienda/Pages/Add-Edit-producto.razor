@@ -1,0 +1,84 @@
+﻿@page "/add-producto"
+@using Tienda.Models
+@inject Tienda.Interfaces.IProducto productoservice;
+
+
+<html>
+<body>
+    <div class="card">
+        <h1>Agregar Nuevo Producto</h1>
+
+        <label class="etiquetas">Nombre Producto</label>
+        <div class="formulario">
+            <input @bind="producto.nombre" type="text" placeholder="Ingrese su nombre" />
+        </div>
+
+
+        <label class="etiquetas">Marca</label>
+        <div class="formulario">
+            <input @bind="producto.marca" type="text" placeholder="Ingrese la marca del producto" />
+        </div>
+
+
+        <label class="etiquetas">Talla</label>
+        <div class="formulario">
+            <input @bind="producto.talla" type="text" placeholder="Ingrese la talla del producto" />
+        </div>
+
+        <label class="etiquetas">Detalle</label>
+        <div class="formulario">
+            <input @bind="producto.detalle" type="text" placeholder="Ingrese el detalle del producto" />
+        </div>
+
+
+        <label class="etiquetas">Categoria</label>
+        <div class="formulario">
+            <input @bind="producto.categoria" type="text" placeholder="Ingrese la categoria de los productos" />
+        </div>
+
+        <label class="etiquetas">Cantidad</label>
+        <div class="formulario">
+            <input @bind="producto.cantidad_inventario" type="text" placeholder="Ingrese de productos" />
+        </div>
+
+        <label class="etiquetas">Precio</label>
+        <div class="formulario">
+            <input @bind="producto.precio" type="text" placeholder="Ingrese el precio unitario" />
+        </div>
+
+        <label class="etiquetas">Imagen</label>
+        <div class="formulario">
+            <input @bind="producto.imagen" type="text" placeholder="Seleccione la imagen del producto" />
+        </div>
+
+        
+        <button class="btnlog" @onclick="@(e=> saveProducto())">Agregar Producto</button>
+
+    </div>
+</body>
+</html>
+
+
+@code {
+
+    #region Declaraciones
+    mProductos producto = new mProductos();
+    #endregion
+
+
+    #region Methods
+
+    private void saveProducto()
+    {
+        productoservice.Add_Producto(producto);
+        Reset();
+    }
+
+
+    private void Reset()
+    {
+        producto = new mProductos();
+    }
+
+    #endregion
+}

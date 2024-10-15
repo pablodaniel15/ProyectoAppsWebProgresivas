@@ -1,0 +1,78 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: cornflowerblue;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-position: center;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+    width: 500px;
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 30px 40px;
+}
+
+.card h1 {
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.card .formulario {
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    margin: 30px 0;
+}
+
+.card .etiquetas {
+    font-size: 15px;
+    text-align: center;
+    color: black;
+}
+
+.formulario input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 20px 45px 20px 20px;
+    color: white;
+    font-size: 16px;
+}
+
+.formulario input::placeholder {
+    color: white;
+}
+
+.card .btnlog {
+    width: 100%;
+    height: 45px;
+    background: greenyellow;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    color: black;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}

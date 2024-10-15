@@ -1,0 +1,18 @@
+﻿table {
+    width: 100%;
+    border: 1px solid;
+    background-color: white;
+}
+
+table th {
+   text-align: center;
+   border: 1px solid;
+   color: white;
+   background-color: #343a40;
+}
+
+    table td {
+        text-align: center;
+        border: 1px solid;
+        color: black;
+    }
